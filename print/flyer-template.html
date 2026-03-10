@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: 76mm 297mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 76mm;
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 9pt;
+    line-height: 1.3;
+    padding: 4mm 3mm;
+    color: #000;
+  }
+  h1 {
+    font-size: 14pt;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .title-img {
+  display: block;
+  width: 68mm;     /* control the printed width */
+  height: auto;    /* keep proportions */
+  margin: 0 auto;  /* center horizontally */
+  }
+  .question {
+    font-size: 9pt;
+    text-align: left;
+    margin-bottom: 3mm;
+    line-height: 1.25;
+  }
+  .divider {
+    text-align: center;
+    font-size: 8pt;
+    letter-spacing: 0px;
+    margin: 2mm 0;
+    color: #000;
+  }
+  .app {
+    margin-bottom: 3mm;
+  }
+  .app-name {
+    font-weight: bold;
+    font-size: 9.5pt;
+    text-align: center;
+    line-height: 1.5;
+    padding-bottom: 1mm;
+  }
+  .emoji {
+    display: inline-block;
+    width: 0.8cm;
+    height: 0.8cm;
+    font-size: 0.8cm;
+    line-height: 1;
+    vertical-align: middle;
+  }
+  .app-desc {
+    font-size: 8.5pt;
+    color: #000;
+    padding-bottom: 2mm;
+  }
+  .qr {
+    text-align: center;
+    margin: 4mm 0 2mm;
+  }
+  .qr img {
+    display: block;
+    width: 20mm;
+    height: 20mm;
+    margin: 0 auto;
+  }
+  .qr .url {
+    font-size: 8pt;
+    margin-top: 1mm;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 8pt;
+    color: #000;
+    margin-top: 3mm;
+    line-height: 1.1;
+    padding-top: 0;
+  }
+  .capture { display: block; width: 100%; height: auto; }
+  .msg { font-size: 9pt; font-weight: bold; text-align: center; margin: 3mm 0 0 0; }
+  .from { text-align: center; font-size: 8pt; color: #000; margin-bottom: 2mm; }
+</style>
+</head>
+<body>
+  <!-- {{CAPTURE_SECTION}} -->
+  <h1><img class="title-img" src="images/title.png"></h1>
+  <div class="divider" style="margin-top: 0;">__ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _</div>
+
+  <div class="question">
+Do you still remember that you have a body when working at a computer? SomeBody is a set of tools meant to remind you that you are not a machine.
+  </div>
+
+  <div class="divider">__ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _</div>
+
+  <div class="app">
+    <div class="app-name"><span class="emoji">👁️</span><br>Posture Police</div>
+    <div class="app-desc">Watches your posture through your webcam and nudges you when it gets bad.</div>
+  </div>
+
+  <div class="app">
+    <div class="app-name"><span class="emoji">💨</span><br>Breathing Guide</div>
+    <div class="app-desc">Gently guides your breathing with customizable visuals and sounds.</div>
+  </div>
+
+  <div class="app">
+    <div class="app-name"><span class="emoji">✋</span><br>Hand Trainer</div>
+    <div class="app-desc">Imagine your computer screen as a window that gets dirtier the longer you use it. Wipe it clean with your hands.</div>
+  </div>
+
+  <div class="qr">
+    <img src="images/qrcode.jpg">
+    <!-- <img src="{{QR_CODE}}" alt="QR"> -->
+    <div class="url">
+    https://github.com/mtnnnntm/<br>SomeBody/releases/
+  </div>
+  </div>
+
+  <div class="divider">__ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _</div>
+  <div class="footer">
+    Built by Jiawen Mei · 2026<br>
+    ♥︎ Special Thanks ♥︎<br>
+    Ted Davis, Susanne Käser, Dongjun Choi<br>
+    {{TIMESTAMP}}<br>
+  </div>
+</body>
+</html>

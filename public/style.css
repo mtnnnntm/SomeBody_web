@@ -1,0 +1,600 @@
+/* ─── Reset & Base ──────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #000000;
+  --text: #0dff00;
+  --text-dim: #008f00;
+  --accent: #0dff00;
+  --card-bg: #e8e8e8;
+  --card-text: #000000;
+  --border: #0dff00;
+  --max-width: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Spline Sans Mono', monospace;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── Top Navigation Bar ──────────────────────── */
+.top-nav {
+  position: relative;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 32px;
+  background: transparent;
+}
+
+.nav-link {
+  position: fixed;
+  top: 28px;
+  z-index: 60;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+#print-btn {
+  left: 32px;
+}
+
+#print-status {
+  position: fixed;
+  top: 54px;
+  left: 32px;
+  z-index: 60;
+  font-family: inherit;
+  font-size: 0.75rem;
+  color: var(--text);
+}
+
+a.nav-link {
+  right: 32px;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.blink {
+  animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── Layout ────────────────────────────────────── */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Hero ──────────────────────────────────────── */
+.hero {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 110px 0 40px;
+}
+
+.ascii-title {
+  color: var(--text);
+  font-family: 'Spline Sans Mono', monospace;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  white-space: pre;
+  overflow-x: auto;
+  text-align: left;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: var(--text);
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 50px;
+  text-align: left;
+  align-self: center;
+}
+
+/* ─── Tab Bar ──────────────────────────────────── */
+.tab-bar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-btn {
+  padding: 0;
+  font-family: inherit;
+  color: var(--text-dim);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-ascii {
+  font-family: 'Spline Sans Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.1;
+  margin: 0;
+  white-space: pre;
+  color: inherit;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+}
+
+.tab-btn.active {
+  color: var(--text);
+}
+
+/* ─── App Panels (stacked sections) ────────────── */
+#app-content {
+  padding: 20px 0;
+}
+
+.app-panel {
+  display: block;
+  margin-bottom: 200px;
+  scroll-margin-top: 80px;
+}
+
+.app-panel:last-child {
+  margin-bottom: 0;
+}
+
+.app-label {
+  font-family: 'Spline Sans Mono', monospace;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 30px;
+}
+
+.section-sep {
+  text-align: center;
+  font-family: 'Spline Sans Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.1;
+  color: var(--text);
+  padding: 0;
+  margin: 0 0 120px;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ─── Panel Layout: Video + Floating Card ──────── */
+.panel-layout {
+  position: relative;
+  width: 100%;
+}
+
+/* ─── Video Container ──────────────────────────── */
+.video-container {
+  position: relative;
+  width: 85%;
+  margin: 0 auto;
+  aspect-ratio: 3024 / 1964;
+  background: none;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  padding: 0 6px;
+}
+
+.video-container::before,
+.video-container::after {
+  content: none;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+/* ─── macOS Info Card ──────────────────────────── */
+.info-card {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  width: 340px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 10;
+  min-width: 240px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card 1: bottom-left */
+#section-posture .info-card {
+  right: auto;
+  left: 8px;
+}
+
+/* Card 2: top-right */
+#section-breathing .info-card {
+  bottom: auto;
+  top: 6px;
+}
+
+/* Card 3: bottom-left */
+#section-hand .info-card {
+  right: auto;
+  left: 8px;
+}
+
+/* ─── Card Title Bar (macOS style) ─────────────── */
+.card-titlebar {
+  background: #d4d4d4;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px 12px 0 0;
+  cursor: grab;
+  flex-shrink: 0;
+}
+
+.card-titlebar:active {
+  cursor: grabbing;
+}
+
+/* ─── Resize Handles (all four corners) ────────── */
+.resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  cursor: nwse-resize;
+}
+.resize-handle-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  cursor: nwse-resize;
+}
+.resize-handle-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  cursor: nesw-resize;
+}
+.resize-handle-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  cursor: nesw-resize;
+}
+
+.traffic-lights {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.traffic-lights .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green { background: #28c840; }
+
+.card-titlebar .card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a4a4a;
+  letter-spacing: 0px;
+  flex: 1;
+  text-align: center;
+  padding-right: 44px; /* offset for traffic lights to visually center */
+}
+
+.card-body {
+  padding: 14px 12px 12px;
+  color: var(--card-text);
+  overflow-y: auto;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.card-body h3 {
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  margin-bottom: 8px;
+  margin-top: 14px;
+  color: #000;
+}
+
+.card-body h3:first-child {
+  margin-top: 0;
+}
+
+.card-body p {
+  font-size: 0.8rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* ─── Try It Button (inside card) ─────────────── */
+.btn-try {
+  display: inline-block;
+  margin: 12px 0 10px;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: #000;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  transition: opacity 0.2s;
+}
+
+.btn-try:hover {
+  opacity: 0.8;
+}
+
+.btn-try:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ─── Fullscreen Demo Overlay ──────────────────── */
+.demo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.demo-overlay.hidden {
+  display: none;
+}
+
+#demo-overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#demo-overlay-content canvas {
+  display: block;
+  pointer-events: none;
+}
+
+.overlay-close {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 101;
+  pointer-events: auto;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 0;
+  width: 44px;
+  height: 44px;
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.overlay-close:hover {
+  background: rgba(0, 255, 0, 0.25);
+}
+
+.overlay-controls {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 101;
+  pointer-events: auto;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.overlay-controls button {
+  padding: 8px 18px;
+  font-size: 0.8rem;
+  font-family: 'Spline Sans Mono', monospace;
+  color: var(--text);
+  background: #000;
+  border: 1px solid rgba(0, 255, 0, 0.6);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-transform: uppercase;
+}
+
+.overlay-controls button:hover {
+  background: #111;
+}
+
+.overlay-controls button.active {
+  background: #0a1a0a;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ─── Footer ───────────────────────────────────── */
+.site-footer {
+
+  padding: 100px 0 30px;
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+/* ─── Responsive ───────────────────────────────── */
+@media (max-width: 768px) {
+  .ascii-title {
+    font-size: 1rem;
+  }
+
+  .hero {
+    min-height: 50vh;
+    padding: 80px 0 30px;
+  }
+
+  .tab-btn {
+    padding: 10px 16px;
+    font-size: 0.75rem;
+  }
+
+  #app-content {
+    padding: 25px 0;
+  }
+
+  .info-card {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 16px;
+    transform: none !important;
+  }
+
+  .resize-handle,
+  .resize-handle-tl,
+  .resize-handle-tr,
+  .resize-handle-bl {
+    display: none;
+  }
+
+  .card-titlebar {
+    cursor: default;
+  }
+
+  .top-nav {
+    padding: 8px 16px;
+    flex-wrap: wrap;
+  }
+
+  .tab-bar {
+    position: relative;
+    left: auto;
+    transform: none;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-ascii {
+    font-size: 0.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+    top: 8px;
+  }
+
+  #print-btn {
+    left: 16px;
+  }
+
+  #print-status {
+    top: 34px;
+    left: 16px;
+  }
+
+  a.nav-link {
+    right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ascii-title {
+    font-size: 0.4rem;
+  }
+
+  .btn-ascii {
+    font-size: 0.4rem;
+  }
+}

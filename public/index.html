@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SomeBody</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--═══ Top Navigation Bar ═══════════════════════ -->
+  <nav class="top-nav">
+    <button class="nav-link" id="print-btn" onclick="printFlyer()">PRINT A FLYER!</button>
+    <div class="print-status" id="print-status"></div>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-app="posture" onclick="switchApp('posture')"><pre class="btn-ascii">__________________
+|                 |
+|  PosturePolice  |
+|_________________|</pre></button>
+      <button class="tab-btn" data-app="breathing" onclick="switchApp('breathing')"><pre class="btn-ascii">__________________
+|                  |
+|  BreathingGuide  |
+|__________________|</pre></button>
+      <button class="tab-btn" data-app="hand" onclick="switchApp('hand')"><pre class="btn-ascii">_________________
+|                 |
+|   HandTrainer   |
+|_________________|</pre></button>
+    </div>
+    <a href="downloads/somebody.dmg" class="nav-link">—> DOWNLOAD<span class="blink">█</span></a>
+  </nav>
+  <main>
+
+  <!-- ═══ Hero ═══════════════════════════════════════ -->
+  <section class="hero">
+
+<pre class="ascii-title">
+ ____                    ____         _
+/ ___)                  | __ )     __| |
+\___ \     _ __ ___     |  _ \___ / _` |_   _
+ ___) |__ | '_ ` _ \ ___| |_)/ _ \ (_| | | | |
+(____/ _ \| | | | | / _ \___( (_) \__,_| |_| |
+    | (_) |_| |_| ||  __/    \___/      \__, /
+     \___/          \___)               (___/
+                                        </pre>
+      <p class="tagline">Do you still remember that you have a body when working at a computer? SomeBody is a set of tools meant to remind you that you are not a machine. Experience it live here, or download the desktop apps.</p>
+
+
+    </section>
+
+    <!-- ═══ App Content (all panels stacked) ═══ -->
+    <div id="app-content">
+
+      <div class="section-sep">__ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __</div>
+
+      <div class="app-panel" id="section-posture" data-app="posture">
+        <div class="app-label">1. Posture Police</div>
+        <div class="panel-layout">
+          <div class="video-container">
+            <video src="videos/1.mov" muted loop playsinline></video>
+          </div>
+          <div class="info-card">
+            <div class="card-titlebar">
+              <div class="traffic-lights">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="card-title">👁️ PosturePolice</span>
+            </div>
+            <div class="card-body">
+              <h3>WHAT IT DOES</h3>
+              <p>Uses your webcam to track body keypoints and monitor your posture in real time.</p>
+              <h3>SCORING</h3>
+              <p>It scores four dimensions: sitting duration, eye distance to the screen, neck tilt, and back alignment. <br>neck angle too bent? ─> neck score +1<br>back slouching? ─> back score +1 <br>eye too close? –> eyes score +1<br>sitting for too long? –> sitting score +1</p>
+              <h3>PENALTIES</h3>
+              <p>When the border turns orange, it’s time to improve your posture! Otherwise different strategies will be used to make you aware. </p>
+              <button class="btn-try" onclick="openDemoOverlay('posture')">-> TRY IT<span class="blink">_</span></button>
+            </div>
+            <div class="resize-handle-tl"></div>
+            <div class="resize-handle-tr"></div>
+            <div class="resize-handle-bl"></div>
+            <div class="resize-handle"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-panel" id="section-breathing" data-app="breathing">
+        <div class="app-label">2. Breathing Guide</div>
+        <div class="panel-layout">
+          <div class="video-container">
+            <video src="videos/2.mov" muted loop playsinline></video>
+          </div>
+          <div class="info-card">
+            <div class="card-titlebar">
+              <div class="traffic-lights">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="card-title">💨 BreathingGuide</span>
+            </div>
+            <div class="card-body">
+              <h3>WHAT IT DOES</h3>
+              <p>Displays animated visuals that expand and contract in sync with a breathing rhythm, helping you restore deeper breathing without having to pause what you’re working on.</p>
+
+              <h3>CUSTOMIZE</h3>
+              <p>Pick a visual mode, a colour, a sound, and a timer that work best for you, and breath along:<br>inhale → hold → exhale → rest</p>
+
+              <button class="btn-try" onclick="openDemoOverlay('breathing')">-> TRY IT<span class="blink">_</span></button>
+            </div>
+            <div class="resize-handle-tl"></div>
+            <div class="resize-handle-tr"></div>
+            <div class="resize-handle-bl"></div>
+            <div class="resize-handle"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-panel" id="section-hand" data-app="hand">
+        <div class="app-label">3. Hand Trainer</div>
+        <div class="panel-layout">
+          <div class="video-container">
+            <video src="videos/3.mov" muted loop playsinline></video>
+          </div>
+          <div class="info-card">
+            <div class="card-titlebar">
+              <div class="traffic-lights">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="card-title">✋ HandTrainer</span>
+            </div>
+            <div class="card-body">
+              <h3>WHAT IT DOES</h3>
+              <p>Imagine your computer screen as a window that gets dirtier the longer you use it. Wipe away the mouse traces and text using different sides of your palms.</p>
+              <h3>BONUS FEATURE</h3>
+              <p>When your computer is not in use for 20 minutes, it automatically enters finger-drawing mode, where you can do the opposite: pinch your fingers to draw, then erase with the cursor.</p>
+              <h3>GESTURE OVERVIEW</h3>
+              <p>✋ = erase dirt/keydrop<br>🤏 = draw<br>✌️ = screenshot overlay<br>✌️✌️ = screenshot full desktop </p>
+              <button class="btn-try" onclick="openDemoOverlay('hand')">-> TRY IT<span class="blink">_</span></button>
+            </div>
+            <div class="resize-handle-tl"></div>
+            <div class="resize-handle-tr"></div>
+            <div class="resize-handle-bl"></div>
+            <div class="resize-handle"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══ Footer ════════════════════════════════════ -->
+    <footer class="site-footer">
+      <p id="weather-line"></p>
+      <p>SomeBody reminds you that you have a body · Built by Jiawen Mei · 2026</p>
+    </footer>
+    <script>
+      fetch('/api/weather').then(r=>r.json()).then(d=>{
+        if(d.weather) document.getElementById('weather-line').textContent=d.weather;
+      }).catch(()=>{});
+    </script>
+  </main>
+
+  <!-- ═══ Fullscreen Demo Overlay ═══════════════════ -->
+  <div id="demo-overlay" class="demo-overlay hidden">
+    <button class="overlay-close" onclick="closeDemoOverlay()">&#x2715;</button>
+    <div id="demo-overlay-content"></div>
+    <div class="overlay-controls" id="overlay-controls"></div>
+  </div>
+
+  <!-- ─── Scripts ──────────────────────────────────── -->
+  <script src="utils/perlin.js"></script>
+  <script src="utils/phase.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
