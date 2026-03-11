@@ -82,6 +82,8 @@ function openDemoOverlay(appName) {
 
   var overlay = document.getElementById('demo-overlay');
   overlay.classList.remove('hidden');
+  document.body.classList.add('demo-active');
+  document.body.dataset.activeDemo = appName;
   activeDemo = appName;
   loadDemo(appName);
 }
@@ -89,6 +91,8 @@ function openDemoOverlay(appName) {
 function closeDemoOverlay() {
   var overlay = document.getElementById('demo-overlay');
   overlay.classList.add('hidden');
+  document.body.classList.remove('demo-active');
+  delete document.body.dataset.activeDemo;
 
   // Cleanup active demo
   cleanupDemo();

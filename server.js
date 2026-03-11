@@ -25,7 +25,7 @@ async function fetchBaselWeather() {
 const WEBSITE_URL = 'https://github.com/mtnnnntm/SomeBody/releases/v1.0.0'; // change for production
 
 app.use(express.json({ limit: '5mb' }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 // --- Thermal Printer Endpoint ---
 app.post('/api/print', async (req, res) => {
@@ -42,7 +42,7 @@ app.post('/api/print', async (req, res) => {
     let html = fs.readFileSync(templatePath, 'utf-8');
 
     const titleB64 = 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, 'print', 'images', 'title.png')).toString('base64');
-    const qrB64 = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(__dirname, 'public', 'images', 'qrcode.jpg')).toString('base64');
+    const qrB64 = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(__dirname, 'docs', 'images', 'qrcode.jpg')).toString('base64');
     html = html.replace('src="images/title.png"', 'src="' + titleB64 + '"');
     html = html.replace('src="images/qrcode.jpg"', 'src="' + qrB64 + '"');
 
@@ -56,7 +56,7 @@ app.post('/api/print', async (req, res) => {
         '<div class="msg">You are too close to me!!</div>'
         + '<div class="from">from: PosturePolice</div>'
         + '<img class="capture" src="' + captureImage + '">'
-        + '<div class="divider">__ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _ __</div>');
+        + '<div class="divider">__ _ __ _ __ _ __ _ __ _ __ _ __ _ __ _</div>');
     } else {
       html = html.replace('<!-- {{CAPTURE_SECTION}} -->', '');
     }
@@ -114,7 +114,7 @@ app.get('/api/flyer', async (req, res) => {
     // Read and render flyer template
     const templatePath = path.join(__dirname, 'print', 'flyer-template.html');
     let html = fs.readFileSync(templatePath, 'utf-8');
-    const qrPath = path.join(__dirname, 'public', 'images', 'qrcode.jpg');
+    const qrPath = path.join(__dirname, 'docs', 'images', 'qrcode.jpg');
     const qrDataURL = 'data:image/jpeg;base64,' + fs.readFileSync(qrPath).toString('base64');
 
     html = html.replace('{{TIMESTAMP}}', fullTimestamp);

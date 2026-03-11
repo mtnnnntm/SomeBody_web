@@ -202,7 +202,7 @@
         p.push();
         p.translate(p.width, 0);
         p.scale(-1, 1);
-        p.tint(255, 128);
+        p.tint(255, 125);
         p.drawingContext.filter = 'grayscale(1)';
         p.image(videoEl, offsetX, offsetY, drawW, drawH);
         p.drawingContext.filter = 'none';
